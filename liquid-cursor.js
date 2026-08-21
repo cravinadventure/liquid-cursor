@@ -5,7 +5,7 @@
  *
  * Built by Cravin' Adventure Studios - https://cravinadventure.com
  * Fluid solver technique after Pavel Dobryakov's WebGL-Fluid-Simulation (MIT).
- * Released under the MIT License. Please keep the credit badge on.
+ * Released under the MIT License.
  */
 (function (global) {
   "use strict";
@@ -23,8 +23,7 @@
     dyeRes: 512,        // colour grid
     dpr: 1.5,           // device pixel ratio ceiling
     colors: [[0.55, 0.29, 0.97], [0.84, 0.36, 0.96], [0.31, 0.39, 0.94],
-             [0.72, 0.22, 0.92], [0.42, 0.32, 1.00]],
-    credit: true        // Cravin' Adventure Studios badge
+             [0.72, 0.22, 0.92], [0.42, 0.32, 1.00]]
   };
 
   function LiquidCursor(opt) {
@@ -264,24 +263,6 @@
       blit(dye.write); dye.swap();
     }
 
-    /* ---- credit badge ---- */
-
-    if (o.credit) {
-      var a = document.createElement("a");
-      a.href = "https://cravinadventure.com";
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = "Cravin' Adventure Studios";
-      a.setAttribute("aria-label", "Fluid effect by Cravin' Adventure Studios");
-      a.style.cssText = (full ? "position:fixed" : "position:absolute") +
-        ";right:14px;bottom:12px;z-index:2147483000;font:500 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;" +
-        "letter-spacing:.14em;text-transform:uppercase;color:#bdadfa;opacity:.42;text-decoration:none;" +
-        "mix-blend-mode:screen;pointer-events:auto;transition:opacity .25s ease";
-      a.addEventListener("mouseenter", function () { a.style.opacity = ".9"; });
-      a.addEventListener("mouseleave", function () { a.style.opacity = ".42"; });
-      (full ? document.body : host).appendChild(a);
-    }
-
     /* ---- run ---- */
 
     size();
@@ -333,7 +314,7 @@
       options: o,
       splat: function (x, y, dx, dy) { splat(x, y, dx || 0, dy || 0, color()); },
       set: function (kv) { for (var q in kv) o[q] = kv[q]; },
-      destroy: function () { run = false; cv.remove(); if (a) a.remove(); }
+      destroy: function () { run = false; cv.remove(); }
     };
   }
 
@@ -350,12 +331,7 @@
       var v = d[key];
       cfg[key] = (key === "target") ? v : (v === "true" ? true : v === "false" ? false : parseFloat(v));
     }
-    var boot = function () {
-      LiquidCursor(cfg);
-      console.log("%c liquid-cursor %c by Cravin' Adventure Studios - cravinadventure.com ",
-        "background:#8b4bf8;color:#fff;border-radius:2px 0 0 2px",
-        "background:#1a1030;color:#bdadfa;border-radius:0 2px 2px 0");
-    };
+    var boot = function () { LiquidCursor(cfg); };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
     else boot();
   }

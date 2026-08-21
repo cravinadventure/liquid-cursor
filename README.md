@@ -1,6 +1,6 @@
 # liquid-cursor
 
-A GPU fluid cursor trail in one file. No dependencies, no build step. 10 KB minified, 4 KB gzipped.
+A GPU fluid cursor trail in one file. No dependencies, no build step. 9 KB minified, 3.7 KB gzipped.
 
 Your pointer does not draw a line. It injects velocity into a real fluid simulation, and the color gets carried by the flow.
 
@@ -71,7 +71,6 @@ Or take control yourself with `data-manual`:
 | `simRes` | `140` | Velocity grid resolution. Raise for detail, at a cost. |
 | `dyeRes` | `512` | Color grid resolution. |
 | `dpr` | `1.5` | Device pixel ratio ceiling. |
-| `credit` | `true` | The Cravin' Adventure Studios badge. |
 
 ### Returned handle
 
@@ -104,8 +103,6 @@ Two ping-pong half-float render targets hold the velocity field (140 px grid) an
 ## Credit
 
 Built by [Cravin' Adventure Studios](https://cravinadventure.com).
-
-The library ships a small badge in the corner linking back. It is one line to turn off (`credit: false`), but leaving it on is how this stays free. If you use it on something you are proud of, tell me.
 
 Fluid solver technique after Pavel Dobryakov's [WebGL-Fluid-Simulation](https://github.com/PavelDoGreat/WebGL-Fluid-Simulation), MIT.
 
