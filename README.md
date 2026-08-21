@@ -13,7 +13,7 @@ Your pointer does not draw a line. It injects velocity into a real fluid simulat
 One tag. It starts itself and paints behind your content.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/cravinadventure/liquid-cursor@main/liquid-cursor.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cravinadventure/liquid-cursor@1.0.1/liquid-cursor.min.js"></script>
 ```
 
 In full page mode the canvas sits at `z-index:-1`, so your `body` needs a transparent background or it will cover the effect. Put the color on `html` instead:
